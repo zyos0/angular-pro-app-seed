@@ -32,15 +32,3 @@ export const ROUTES: Routes = [];
 })
 export class AppModule {
 }
-
-/**
- *
- *  var config = {
-    apiKey: "AIzaSyAlf1hbk_WLtuchUPSLRgdLWdX9SwasxSs",
-    authDomain: "ultimateproject-5811d.firebaseapp.com",
-    databaseURL: "https://ultimateproject-5811d.firebaseio.com",
-    projectId: "ultimateproject-5811d",
-    storageBucket: "ultimateproject-5811d.appspot.com",
-    messagingSenderId: "389432022506"
-  };
- */

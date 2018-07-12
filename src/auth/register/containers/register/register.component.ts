@@ -1,5 +1,7 @@
 import {Component} from "@angular/core";
 import {FormGroup} from "@angular/forms";
+import {AuthService} from "../../../shared/services/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'register',
@@ -11,17 +13,33 @@ import {FormGroup} from "@angular/forms";
         <button type="submit">
           Create account
         </button>
+        <div class="error" *ngIf="error">
+          {{error}}
+
+        </div>
       </auth-form>
     </div>
   `
 })
 export class RegisterComponent {
-  constructor() {
+  error: string;
+
+  constructor(private router: Router, private authService: AuthService) {
   }
 
 
-  registerUser(event: FormGroup) {
-    console.log(event.value);
+  async registerUser(event: FormGroup) {
+    const {email, password} = event.value;
+
+    try {
+      await this.authService
+        .createUser(email, password);
+      this.router.navigate(['/']);
+    } catch (err) {
+      this.error = err.message;
+
+    }
+
 
   }
 }
