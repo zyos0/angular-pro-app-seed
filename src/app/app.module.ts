@@ -15,7 +15,9 @@ import {AppHeaderComponent} from "./components/app-header/app-header.component";
 import {HealthModule} from "../health/health.module";
 
 // routes
-export const ROUTES: Routes = [];
+export const ROUTES: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'schedule'}
+];
 
 @NgModule({
   imports: [
