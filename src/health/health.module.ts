@@ -1,6 +1,7 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {AuthGuard} from "../auth/shared/guards/auth.guard";
+import {SharedModule} from "./shared/shared.module";
 
 const ROUTES: Routes = [
   {path: 'meals', canActivate: [AuthGuard], loadChildren: './meals/meals.module#MealsModule'},
@@ -9,7 +10,7 @@ const ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(ROUTES)],
+  imports: [RouterModule.forChild(ROUTES), SharedModule.forRoot()],
   declarations: [],
   providers: []
 })

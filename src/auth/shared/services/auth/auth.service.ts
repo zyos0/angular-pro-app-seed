@@ -57,4 +57,9 @@ export class AuthService {
   }
 
 
+  get user() {
+    return this.af.auth.currentUser;
+  }
+
+
 }
