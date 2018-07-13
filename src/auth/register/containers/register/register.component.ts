@@ -15,7 +15,6 @@ import {Router} from "@angular/router";
         </button>
         <div class="error" *ngIf="error">
           {{error}}
-
         </div>
       </auth-form>
     </div>
@@ -37,9 +36,6 @@ export class RegisterComponent {
       this.router.navigate(['/']);
     } catch (err) {
       this.error = err.message;
-
     }
-
-
   }
 }
