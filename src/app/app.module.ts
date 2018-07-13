@@ -12,6 +12,7 @@ import {AppComponent} from './containers/app/app.component';
 // components
 import {AppNavComponent} from "./components/app-nav/app-nav.component";
 import {AppHeaderComponent} from "./components/app-header/app-header.component";
+import {HealthModule} from "../health/health.module";
 
 // routes
 export const ROUTES: Routes = [];
@@ -20,7 +21,8 @@ export const ROUTES: Routes = [];
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    AuthModule
+    AuthModule,
+    HealthModule
   ],
   declarations: [
     AppComponent,
