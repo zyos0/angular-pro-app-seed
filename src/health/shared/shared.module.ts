@@ -13,6 +13,7 @@ import {MealsService} from './services/meals/meals.service';
 import {WorkoutsService} from './services/workouts/workouts.service';
 import {JoinPipe} from "./pipes/join.pipe";
 import {WorkoutPipe} from "./pipes/workout.pipe";
+import {ScheduleService} from "./services/schedule/schedule.service";
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ export class SharedModule {
       ngModule: SharedModule,
       providers: [
         MealsService,
-        WorkoutsService
+        WorkoutsService,
+        ScheduleService
       ]
     };
   }
