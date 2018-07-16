@@ -8,7 +8,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from "@
     <div class="list-item">
       <a [routerLink]="getRoute(item)">
         <p class="list-item__name">
-          {{item.name}}}
+          {{item.name}}
         </p>
 
         <p class="list-item__ingredients">

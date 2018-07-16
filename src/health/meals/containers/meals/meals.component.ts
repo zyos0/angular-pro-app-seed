@@ -3,6 +3,7 @@ import {Meal, MealsService} from "../../../shared/services/meals/meals.service";
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 import {Store} from "store";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -48,7 +49,8 @@ export class MealsComponent implements OnInit, OnDestroy {
 
   constructor(
     private mealsService: MealsService,
-    private store: Store
+    private store: Store,
+
   ) {
   }
 
