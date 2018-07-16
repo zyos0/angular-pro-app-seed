@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'list-item',
@@ -10,24 +10,27 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 
         <p class="list-item__name">{{ item.name }}</p>
         <p class="list-item__ingredients">
-          <span>
-            {{ item.ingredients }}
+          <span *ngIf="item.ingredients; else showWokout">
+            {{ item.ingredients | Join }}
           </span>
         </p>
+        <ng-template #showWokout>
+          <span>{{item | workout}}</span>
+        </ng-template>
 
       </a>
 
-      <div 
+      <div
         class="list-item__delete"
         *ngIf="toggled">
         <p>Delete item?</p>
-        <button 
+        <button
           class="confirm"
           type="button"
           (click)="removeItem()">
           Yes
         </button>
-        <button 
+        <button
           class="cancel"
           type="button"
           (click)="toggle()">
@@ -35,7 +38,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
         </button>
       </div>
 
-      <button 
+      <button
         class="trash"
         type="button"
         (click)="toggle()">
@@ -55,7 +58,8 @@ export class ListItemComponent {
   @Output()
   remove = new EventEmitter<any>();
 
-  constructor() {}
+  constructor() {
+  }
 
   toggle() {
     this.toggled = !this.toggled;
@@ -66,6 +70,9 @@ export class ListItemComponent {
   }
 
   getRoute(item: any) {
-    return [`../meals`, item.$key];
+    return [
+      `../${item.ingredients ? 'meals' : 'workouts'}`,
+      item.$key
+    ];
   }
 }
