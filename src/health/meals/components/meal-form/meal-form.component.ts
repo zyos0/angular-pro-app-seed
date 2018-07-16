@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Output} from "@angular/core";
-import {Meal, MealsService} from "../../../shared/meals/meals.service";
+import {Meal, MealsService} from "../../../shared/services/meals/meals.service";
 import {FormArray, FormBuilder, FormControl, Validators} from "@angular/forms";
 
 @Component({

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {Meal, MealsService} from "../../../shared/meals/meals.service";
+import {Meal, MealsService} from "../../../shared/services/meals/meals.service";
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 import {Store} from "store";
@@ -26,6 +26,10 @@ import {Store} from "store";
           <img src="/img/face.svg">
           No meals, add a new meal to start
         </div>
+        <list-item
+          *ngFor="let meal of meals"
+          [item]="meal"
+        ></list-item>
       </div>
       <ng-template #loading>
         <div class="message">

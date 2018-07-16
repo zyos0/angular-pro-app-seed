@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
-import {Meal} from "../../../shared/meals/meals.service";
+import {Meal, MealsService} from "../../../shared/services/meals/meals.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'meal',
@@ -21,11 +22,17 @@ import {Meal} from "../../../shared/meals/meals.service";
   `
 })
 export class MealComponent {
-  constructor() {
+  constructor(private mealService: MealsService, private router: Router) {
 
   }
 
-  addMeal(event: Meal) {
-    console.log('meal ',event)
+  async addMeal(event: Meal) {
+    await this.mealService.addMeal(event);
+    this.backToMeals();
+  }
+
+
+  backToMeals() {
+    this.router.navigate(['meals'])
   }
 }
