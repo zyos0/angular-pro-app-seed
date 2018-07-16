@@ -1,7 +1,8 @@
-import {Component} from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {AuthService} from "../../../shared/services/auth/auth.service";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'login',
@@ -9,30 +10,31 @@ import {Router} from "@angular/router";
     <div>
       <auth-form (submitted)="loginUser($event)">
         <h1>Login</h1>
-        <a routerLink="/auth/register">Not registered</a>
+        <a routerLink="/auth/register">Not registered?</a>
         <button type="submit">
           Login
         </button>
         <div class="error" *ngIf="error">
-          {{error}}
+          {{ error }}
         </div>
       </auth-form>
     </div>
   `
 })
 export class LoginComponent {
+  
   error: string;
 
   constructor(
-    private router: Router,
-    private authService: AuthService) {
-  }
-
+    private authService: AuthService,
+    private router: Router
+  ) {}
+  
   async loginUser(event: FormGroup) {
-    const {email, password} = event.value;
+    const { email, password } = event.value;
     try {
       await this.authService.loginUser(email, password);
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
     } catch (err) {
       this.error = err.message;
     }

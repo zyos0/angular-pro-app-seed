@@ -1,7 +1,8 @@
-import {Component} from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {AuthService} from "../../../shared/services/auth/auth.service";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'register',
@@ -9,30 +10,30 @@ import {Router} from "@angular/router";
     <div>
       <auth-form (submitted)="registerUser($event)">
         <h1>Register</h1>
-        <a routerLink="/auth/register">Already have an account</a>
+        <a routerLink="/auth/login">Already have an account?</a>
         <button type="submit">
           Create account
         </button>
         <div class="error" *ngIf="error">
-          {{error}}
+          {{ error }}
         </div>
       </auth-form>
     </div>
   `
 })
 export class RegisterComponent {
+
   error: string;
-
-  constructor(private router: Router, private authService: AuthService) {
-  }
-
+  
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   async registerUser(event: FormGroup) {
-    const {email, password} = event.value;
-
+    const { email, password } = event.value;
     try {
-      await this.authService
-        .createUser(email, password);
+      await this.authService.createUser(email, password);
       this.router.navigate(['/']);
     } catch (err) {
       this.error = err.message;

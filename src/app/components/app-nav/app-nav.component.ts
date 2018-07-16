@@ -1,29 +1,19 @@
-import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
-  styleUrls: ['app-nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['app-nav.component.scss'],
   template: `
     <div class="app-nav">
       <div class="wrapper">
-        <a routerLink="schedule"
-           routerLinkActive="active">
-          Schedule
-        </a>
-        <a routerLink="meals"
-           routerLinkActive="active">
-          Meals
-        </a>
-        <a routerLink="workouts"
-           routerLinkActive="active">
-          Workouts
-        </a>
+        <a routerLink="schedule" routerLinkActive="active">Schedule</a>
+        <a routerLink="meals" routerLinkActive="active">Meals</a>
+        <a routerLink="workouts" routerLinkActive="active">Workouts</a>
       </div>
-
     </div>
   `
 })
 export class AppNavComponent {
-
+  constructor() {}
 }

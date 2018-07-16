@@ -1,13 +1,13 @@
-import {NgModule} from "@angular/core";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
-import {CommonModule} from "@angular/common";
-import {ReactiveFormsModule} from "@angular/forms";
-import {RouterModule, Routes} from "@angular/router";
-import {ScheduleComponent} from "./containers/schedule/schedule.component";
-
+// containers
+import { ScheduleComponent } from './containers/schedule/schedule.component';
 
 export const ROUTES: Routes = [
-  {path: '', component: ScheduleComponent}
+  { path: '', component: ScheduleComponent }
 ];
 
 @NgModule({
@@ -16,8 +16,8 @@ export const ROUTES: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(ROUTES)
   ],
-  declarations: [ScheduleComponent],
-  providers: []
+  declarations: [
+    ScheduleComponent
+  ]
 })
-export class ScheduleModule{
-}
+export class ScheduleModule {}

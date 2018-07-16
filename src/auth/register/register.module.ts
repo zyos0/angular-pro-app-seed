@@ -1,11 +1,13 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule, Routes} from "@angular/router";
-import {RegisterComponent} from "./containers/register/register.component";
-import {SharedModule} from "../shared/shared.module";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
-const ROUTES: Routes = [
-  {path: '', component: RegisterComponent}
+import { SharedModule } from '../shared/shared.module';
+
+import { RegisterComponent } from './containers/register/register.component';
+
+export const ROUTES: Routes = [
+  { path: '', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -17,8 +19,5 @@ const ROUTES: Routes = [
   declarations: [
     RegisterComponent
   ]
-
 })
-export class RegisterModule {
-
-}
+export class RegisterModule {}

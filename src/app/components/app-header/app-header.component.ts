@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from "@angular/core";
-import {User} from "../../../auth/shared/services/auth/auth.service";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+
+import { User } from '../../../auth/shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +9,13 @@ import {User} from "../../../auth/shared/services/auth/auth.service";
   template: `
     <div class="app-header">
       <div class="wrapper">
-        <img src="/img/logo.svg"/>
-        <div class="app-header__user-info"
-             *ngIf="user?.authenticated"
-        >
+        <img src="/img/logo.svg">
+        <div 
+          class="app-header__user-info"
+          *ngIf="user?.authenticated">
           <span (click)="logoutUser()"></span>
         </div>
       </div>
-
     </div>
   `
 })
@@ -26,8 +26,9 @@ export class AppHeaderComponent {
 
   @Output()
   logout = new EventEmitter<any>();
-
+  
   logoutUser() {
     this.logout.emit();
   }
+
 }

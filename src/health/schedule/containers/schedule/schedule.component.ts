@@ -1,5 +1,4 @@
-import {Component} from "@angular/core";
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'schedule',
@@ -11,7 +10,5 @@ import {Component} from "@angular/core";
   `
 })
 export class ScheduleComponent {
-  constructor() {
-
-  }
+  constructor() {}
 }
