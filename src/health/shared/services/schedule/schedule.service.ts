@@ -15,4 +15,9 @@ export class ScheduleService {
 
   }
 
+
+  updateDate(date: Date) {
+    this.date$.next(date);
+  }
+
 }
